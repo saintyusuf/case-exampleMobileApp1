@@ -1,0 +1,18 @@
+{
+  "tabbar": {
+    "home": "Home",
+    "cards": "Cards",
+    "profile": "Profile"
+  },
+  "pages": {
+    "cards": {
+      "myCard": "My Card",
+      "cardBalance": "Card Balance",
+      "payWithQR": "Pay with QR",
+      "addMoney": "Add money",
+      "cardInformations": "Card informations",
+      "cardTransactions": "Card transactions",
+      "all": "All"
+    }
+  }
+}

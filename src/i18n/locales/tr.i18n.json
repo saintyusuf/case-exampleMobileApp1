@@ -1,0 +1,18 @@
+{
+  "tabbar": {
+    "home": "Ana Sayfa",
+    "cards": "Kartlar",
+    "profile": "Profil"
+  },
+  "pages": {
+    "cards": {
+      "myCard": "Kartım",
+      "cardBalance": "Kart Bakiyesi",
+      "payWithQR": "QR ile öde",
+      "addMoney": "Para yükle",
+      "cardInformations": "Kart bilgileri",
+      "cardTransactions": "Kart hareketleri",
+      "all": "Tümü"
+    }
+  }
+}
