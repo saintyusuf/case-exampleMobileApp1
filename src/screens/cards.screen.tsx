@@ -14,6 +14,7 @@ import CardSecurityNumberIcon from "../components/assets/icons/cardSecurityNumbe
 import CopyIcon from "../components/assets/icons/copy.icon"
 import Clipboard from "@react-native-clipboard/clipboard"
 import hapticFunction from "../functions/haptic.function"
+import CardTransactionsComponent from "../components/cardTransactions.component"
 
 const CardsScreen = () => {
 
@@ -68,52 +69,6 @@ const CardsScreen = () => {
     }, 500)
     return () => clearTimeout(resetIcons)
   },[cardInformations])
-
-  // CARD TRANSACTIONS
-  const [cardTransactions, setTransactions] = useState<{
-    category: string,
-    name: string,
-    date: string,
-    price: string
-  }[]>([
-    {
-      category: "clothing",
-      name: "LC Waikiki Mağazacılık Hizmetleri",
-      date: "30.03.2024",
-      price: "1304,43₺",
-    },
-    {
-      category: "food",
-      name: "Happy Moon's Grup",
-      date: "13.03.2024",
-      price: "310,00₺",
-    },
-    {
-      category: "clothing",
-      name: "LC Waikiki Mağazacılık Hizmetleri",
-      date: "30.03.2024",
-      price: "1304,43₺",
-    },
-    {
-      category: "food",
-      name: "Happy Moon's Grup",
-      date: "13.03.2024",
-      price: "310,00₺",
-    },
-    {
-      category: "clothing",
-      name: "LC Waikiki Mağazacılık Hizmetleri",
-      date: "30.03.2024",
-      price: "1304,43₺",
-    },
-    {
-      category: "food",
-      name: "Happy Moon's Grup",
-      date: "13.03.2024",
-      price: "310,00₺",
-    }
-  ])
-  const [isAllTransactionsVisible, setIsAllTransactionsVisible] = useState(false)
 
   return (
     <SafeAreaView edges={{top: "additive"}} style={{flex: 1, backgroundColor: autoColors.bg2}}>
@@ -201,36 +156,7 @@ const CardsScreen = () => {
             </View>
           </View>
 
-          <View style={{marginTop: 15, marginBottom: 20, paddingHorizontal: 15}}>
-            <View style={{flexDirection: "row", alignItems: "flex-end", marginBottom: 7.5}}>
-              <TextComponent style={{fontSize: 17, fontWeight: 500, marginBottom: 5, color: autoColors.text1}}>{t("screens.cards.cardTransactions")}</TextComponent>
-              <PressableComponent pressableVariant="default" styleOutside={{marginLeft: "auto"}} onPress={()=>setIsAllTransactionsVisible(!isAllTransactionsVisible)}>
-                <TextComponent style={{color: autoColors.text1, fontSize: 14}}>{t("screens.cards.all")}</TextComponent>
-              </PressableComponent>
-            </View>
-
-            <View style={{borderWidth: 1, borderColor: autoColors.border1, borderRadius: 10, backgroundColor: autoColors.bg1}}>
-              <ScrollView>
-              {
-                (isAllTransactionsVisible ? cardTransactions : cardTransactions.slice(0, 2)).map((transaction, index) => (
-                  <View key={index} style={{flexDirection: "row", alignItems: "center", borderBottomWidth: (isAllTransactionsVisible ? cardTransactions.length : 2) - 1 !== index ? 1 : 0, borderColor: autoColors.border2, padding: 10}}>
-                    <View style={{padding: 10, backgroundColor: autoColors.bg2, borderRadius: 50}}>
-                      <CardNumberIcon color={autoColors.brand1}/>
-                    </View>
-                    <View style={{flex: 1, marginLeft: 10}}>
-                      <TextComponent style={{color: autoColors.text1, fontSize: 14, marginBottom: 5}}>{transaction.name}</TextComponent>
-                      <TextComponent style={{color: autoColors.text2, fontSize: 12}}>{transaction.date}</TextComponent>
-                    </View>
-                    <View style={{flexDirection: "row", alignItems: "baseline"}}>
-                      <TextComponent style={{color: autoColors.text1, fontSize: 14}}>-{transaction.price.split(",")[0]}</TextComponent>
-                      <TextComponent style={{color: autoColors.text1, fontSize: 10}}>,{transaction.price.split(",")[1]}</TextComponent>
-                    </View>
-                  </View>
-                ))
-              }
-              </ScrollView>
-            </View>
-          </View>
+          <CardTransactionsComponent/>
         </ScrollView>
 
     </SafeAreaView>
