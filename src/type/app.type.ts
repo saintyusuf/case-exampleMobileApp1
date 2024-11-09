@@ -1,8 +1,8 @@
 export default interface AppType {
   foundations: {
     fontFamily: string
-    fontSize: string
-    mainColor: string
-    secondaryColor: string
+    brand1: string
+    brand2: string
+    brand3: string
   }
 }

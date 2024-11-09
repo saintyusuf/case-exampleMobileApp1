@@ -4,9 +4,9 @@ import AppType from "../../../type/app.type"
 const initialState: AppType = {
   foundations: {
     fontFamily: "Arial",
-    fontSize: "16px",
-    mainColor: "#000",
-    secondaryColor: "#fff"
+    brand1: "#EF4A15",
+    brand2: "#f26e44",
+    brand3: "#FF3D00",
   }
 }
 
@@ -17,17 +17,17 @@ const appSlice = createSlice({
     changeFontFamily: (state, action) => {
       state.foundations.fontFamily = action.payload
     },
-    changeFontSize: (state, action) => {
-      state.foundations.fontSize = action.payload
+    changeBrand1: (state, action) => {
+      state.foundations.brand1 = action.payload
     },
-    changeMainColor: (state, action) => {
-      state.foundations.mainColor = action.payload
+    changeBrand2: (state, action) => {
+      state.foundations.brand2 = action.payload
     },
-    changeSecondaryColor: (state, action) => {
-      state.foundations.secondaryColor = action.payload
+    changeBrand3: (state, action) => {
+      state.foundations.brand3 = action.payload
     }
   }
 })
 
-export const { changeFontFamily, changeFontSize, changeMainColor, changeSecondaryColor } = appSlice.actions
+export const { changeFontFamily, changeBrand1, changeBrand2, changeBrand3 } = appSlice.actions
 export default appSlice

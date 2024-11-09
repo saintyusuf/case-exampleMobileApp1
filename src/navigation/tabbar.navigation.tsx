@@ -86,7 +86,7 @@ const TabbarNavigation = ({state,navigation}:BottomTabBarProps) => {
                   onPress={onPress}
                 >
                   {icon}
-                  <TextComponent style={{color, marginTop: 5}}>{label}</TextComponent>
+                  <TextComponent style={{color, marginTop: 5, fontSize: 12}}>{label}</TextComponent>
                 </PressableComponent>
               </View>
             )

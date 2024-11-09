@@ -1,4 +1,5 @@
 import { View, Text, TextProps } from "react-native"
+import { getAutoColors } from "../theme"
 
 type Props = {
   
@@ -7,9 +8,10 @@ type Props = {
 const TextComponent = (props:Props) => {
 
   const {style, ...propsRest} = props
+  const autoColors = getAutoColors()
   
   return (
-    <Text {...propsRest} style={[{fontSize: 12}, style]}>{props.children}</Text>
+    <Text {...propsRest} style={[{fontSize: 14, color: autoColors.text1}, style]}>{props.children}</Text>
   )
 }
 
