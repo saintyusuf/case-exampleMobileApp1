@@ -4,12 +4,12 @@
     "cards": "Cards",
     "profile": "Profile"
   },
-  "pages": {
+  "screens": {
     "cards": {
       "myCard": "My Card",
       "cardBalance": "Card Balance",
       "payWithQR": "Pay with QR",
-      "addMoney": "Add money",
+      "deposit": "Add money",
       "cardInformations": "Card informations",
       "cardTransactions": "Card transactions",
       "all": "All"

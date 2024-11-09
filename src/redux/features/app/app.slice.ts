@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit"
-import AppType from "../../../type/app"
+import AppType from "../../../type/app.type"
 
 const initialState: AppType = {
   foundations: {

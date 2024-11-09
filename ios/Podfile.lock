@@ -1596,6 +1596,27 @@ PODS:
     - ReactCommon/turbomodule/bridging
     - ReactCommon/turbomodule/core
     - Yoga
+  - RNCClipboard (1.14.3):
+    - DoubleConversion
+    - glog
+    - hermes-engine
+    - RCT-Folly (= 2024.01.01.00)
+    - RCTRequired
+    - RCTTypeSafety
+    - React-Core
+    - React-debug
+    - React-Fabric
+    - React-featureflags
+    - React-graphics
+    - React-ImageManager
+    - React-NativeModulesApple
+    - React-RCTFabric
+    - React-rendererdebug
+    - React-utils
+    - ReactCodegen
+    - ReactCommon/turbomodule/bridging
+    - ReactCommon/turbomodule/core
+    - Yoga
   - RNLocalize (3.3.0):
     - DoubleConversion
     - glog
@@ -1904,6 +1925,7 @@ DEPENDENCIES:
   - ReactCodegen (from `build/generated/ios`)
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
   - "RNCAsyncStorage (from `../node_modules/@react-native-async-storage/async-storage`)"
+  - "RNCClipboard (from `../node_modules/@react-native-clipboard/clipboard`)"
   - RNLocalize (from `../node_modules/react-native-localize`)
   - RNReactNativeHapticFeedback (from `../node_modules/react-native-haptic-feedback`)
   - RNReanimated (from `../node_modules/react-native-reanimated`)
@@ -2046,6 +2068,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon"
   RNCAsyncStorage:
     :path: "../node_modules/@react-native-async-storage/async-storage"
+  RNCClipboard:
+    :path: "../node_modules/@react-native-clipboard/clipboard"
   RNLocalize:
     :path: "../node_modules/react-native-localize"
   RNReactNativeHapticFeedback:
@@ -2126,6 +2150,7 @@ SPEC CHECKSUMS:
   ReactCodegen: 865bafc5c17ec2181620ced1a32c39c38ab2951d
   ReactCommon: 422e364463f33e336fc4db196aeb50fd801d90d6
   RNCAsyncStorage: 597673c6086d359029afefef8fd5859f1f35ab87
+  RNCClipboard: 4a32044e0c654faf2b47a86db4f3f4bbf4f44f3c
   RNLocalize: c28a383fb73b1480d1117c3ca4402113e1772366
   RNReactNativeHapticFeedback: 73756a3477a5a622fa16862a3ab0d0fc5e5edff5
   RNReanimated: 77242c6d67416988a2fd9f5cf574bb3e60016362

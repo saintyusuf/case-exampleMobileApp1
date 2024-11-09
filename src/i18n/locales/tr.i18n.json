@@ -4,12 +4,12 @@
     "cards": "Kartlar",
     "profile": "Profil"
   },
-  "pages": {
+  "screens": {
     "cards": {
       "myCard": "Kartım",
       "cardBalance": "Kart Bakiyesi",
       "payWithQR": "QR ile öde",
-      "addMoney": "Para yükle",
+      "deposit": "Para yükle",
       "cardInformations": "Kart bilgileri",
       "cardTransactions": "Kart hareketleri",
       "all": "Tümü"

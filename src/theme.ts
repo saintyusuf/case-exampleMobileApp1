@@ -1,6 +1,6 @@
 import { useColorScheme } from "react-native"
 
-const colors = {
+const baseColors = {
   // BG COLORS
   lmBg1: "#ffffff",
   lmBg2: "#F8F9FA",
@@ -10,39 +10,43 @@ const colors = {
 
   // TEXT COLORS
   lmText1: "#000000",
-  lmText2: "#C1C8CD",
+  lmText2: "#777777",
+  lmText3: "#CCCCCC",
 
   dmText1: "#ffffff",
-  dmText2: "#C1C8CD",
+  dmText2: "#888888",
+  dmText3: "#555555",
 
   // BORDER COLORS
   lmBorder1: "#eaedef",
-  lmBorder2: "#f4f5f6",
+  lmBorder2: "#fafafa",
 
   dmBorder1: "#333333",
-  dmBorder2: "#444444",
+  dmBorder2: "#111111",
 
   // BRAND COLORS
-  brand1: "#E13915",
-  brand2: "#f7cbbd",
+  brand1: "#EF4A15",
+  brand2: "#f26e44",
+  brand3: "#FF3D00",
 }
 
-const autoColors = () => {
-
-  const colorMode = useColorScheme()
+const getAutoColors = () => {
   
+  const colorMode = useColorScheme()
+
   return {
-    bg1: colorMode === "light" ? colors.lmBg1 : colors.dmBg1,
-    bg2: colorMode === "light" ? colors.lmBg2 : colors.dmBg2,
-    text1: colorMode === "light" ? colors.lmText1 : colors.dmText1,
-    text2: colorMode === "light" ? colors.lmText2 : colors.dmText2,
-    border1: colorMode === "light" ? colors.lmBorder1 : colors.dmBorder1,
-    border2: colorMode === "light" ? colors.lmBorder2 : colors.dmBorder2,
-    brand1: colors.brand1,
-    brand2: colors.brand2,
+    bg1: colorMode === "light" ? baseColors.lmBg1 : baseColors.dmBg1,
+    bg2: colorMode === "light" ? baseColors.lmBg2 : baseColors.dmBg2,
+    text1: colorMode === "light" ? baseColors.lmText1 : baseColors.dmText1,
+    text2: colorMode === "light" ? baseColors.lmText2 : baseColors.dmText2,
+    text3: colorMode === "light" ? baseColors.lmText3 : baseColors.dmText3,
+    border1: colorMode === "light" ? baseColors.lmBorder1 : baseColors.dmBorder1,
+    border2: colorMode === "light" ? baseColors.lmBorder2 : baseColors.dmBorder2,
+    brand1: baseColors.brand1,
+    brand2: baseColors.brand2,
+    brand3: baseColors.brand3,
   }
   
 }
 
-export { autoColors }
-export default colors
+export { getAutoColors, baseColors }

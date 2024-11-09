@@ -1,21 +1,10 @@
 import { NavigationContainer, Theme, DefaultTheme } from "@react-navigation/native"
 import ScreensNavigation from "./screens.navigation"
-import { autoColors } from "../theme"
+import { getAutoColors } from "../theme"
 
-const NavigationProvider = () => {
-
-  const colors = autoColors()
-
-  const theme:Theme = {
-    ...DefaultTheme,
-    colors: {
-      ...DefaultTheme.colors,
-      background: colors.bg1,
-    }
-  }
-  
+const NavigationProvider = () => { 
   return (
-    <NavigationContainer theme={theme}>
+    <NavigationContainer>
       <ScreensNavigation/>
     </NavigationContainer>
   )
