@@ -2,14 +2,10 @@ import { View, ViewProps } from "react-native"
 import TextComponent from "./text.component"
 import CardNumberIcon from "./assets/icons/cardNumber.icon"
 import { getAutoColors } from "../theme"
+import CardTransactionType from "../type/cardTransaction.type"
 
 interface Props {
-  data: {
-    category: string
-    name: string
-    date: string
-    price: string
-  }
+  data: CardTransactionType
   style?: ViewProps["style"]
 }
 

@@ -5,57 +5,18 @@ import { getAutoColors } from "../theme"
 import { useState } from "react"
 import { useTranslation } from "react-i18next"
 import CardTransactionComponent from "./cardTransaction.component"
+import CardTransactionType from "../type/cardTransaction.type"
 
+interface Props {
+  data: CardTransactionType[]
+}
 
-const CardTransactionsComponent = () => {
+const CardTransactionsComponent = (props:Props) => {
 
   const { t } = useTranslation()
   const autoColors = getAutoColors()
 
   const [isAllTransactionsVisible, setIsAllTransactionsVisible] = useState(false)
-  const [cardTransactions, setTransactions] = useState<{
-    category: string,
-    name: string,
-    date: string,
-    price: string
-  }[]>([
-    {
-      category: "clothing",
-      name: "LC Waikiki Mağazacılık Hizmetleri",
-      date: "30.03.2024",
-      price: "1304,43₺",
-    },
-    {
-      category: "food",
-      name: "Happy Moon's Grup",
-      date: "13.03.2024",
-      price: "310,00₺",
-    },
-    {
-      category: "clothing",
-      name: "LC Waikiki Mağazacılık Hizmetleri",
-      date: "30.03.2024",
-      price: "1304,43₺",
-    },
-    {
-      category: "food",
-      name: "Happy Moon's Grup",
-      date: "13.03.2024",
-      price: "310,00₺",
-    },
-    {
-      category: "clothing",
-      name: "LC Waikiki Mağazacılık Hizmetleri",
-      date: "30.03.2024",
-      price: "1304,43₺",
-    },
-    {
-      category: "food",
-      name: "Happy Moon's Grup",
-      date: "13.03.2024",
-      price: "310,00₺",
-    }
-  ])
   
   return (
     <View style={{marginTop: 15, marginBottom: 20, paddingHorizontal: 15}}>
@@ -69,8 +30,8 @@ const CardTransactionsComponent = () => {
       <View style={{borderWidth: 1, borderColor: autoColors.border1, borderRadius: 10, backgroundColor: autoColors.bg1}}>
         <ScrollView>
         {
-          (isAllTransactionsVisible ? cardTransactions : cardTransactions.slice(0, 2)).map((transaction, index) => (
-            <CardTransactionComponent key={index} data={transaction} style={{borderBottomWidth: (isAllTransactionsVisible ? cardTransactions.length : 2) - 1 !== index ? 1 : 0}}/>
+          (isAllTransactionsVisible ? props.data : props.data.slice(0, 2)).map((transaction, index) => (
+            <CardTransactionComponent key={index} data={transaction} style={{borderBottomWidth: (isAllTransactionsVisible ? props.data.length : 2) - 1 !== index ? 1 : 0}}/>
           ))
         }
         </ScrollView>
