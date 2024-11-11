@@ -1,13 +1,15 @@
-import React from "react"
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
 import HomeScreen from "../screens/home.screen"
 import CardsScreen from "../screens/cards.screen"
 import ProfileScreen from "../screens/profile.screen"
 import TabbarNavigation from "./tabbar.navigation"
+import SplashScreen from "../screens/splash.screen"
+import { useEffect, useState } from "react"
 
 const ScreensNavigation = () => {
 
   const BottomTabNavigator = createBottomTabNavigator()
+  const [isSplashScreenVisible, setIsSplashScreenVisible] = useState<boolean>(true)
 
   const BottomTabStack = () => {
     return (
@@ -19,8 +21,15 @@ const ScreensNavigation = () => {
     )
   }
   
+  useEffect(()=>{
+    setIsSplashScreenVisible(false)
+  },[])
+  
   return (
-    <BottomTabStack/>
+    <>
+      <SplashScreen isVisible={isSplashScreenVisible}/>
+      <BottomTabStack/>
+    </>
   )
 }
 

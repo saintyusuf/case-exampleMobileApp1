@@ -1,5 +1,5 @@
 import { LayoutChangeEvent, SafeAreaView, View } from "react-native"
-import React, { useEffect } from "react"
+import { useEffect, useState } from "react"
 import { getAutoColors } from "../theme"
 import HomeIcon from "../components/assets/icons/home.icon"
 import CardsIcon from "../components/assets/icons/cards.icon"
@@ -8,14 +8,14 @@ import TextComponent from "../components/text.component"
 import { useTranslation } from "react-i18next"
 import PressableComponent from "../components/pressable.component"
 import { BottomTabBarProps } from "@react-navigation/bottom-tabs"
-import Animated, { useSharedValue, withSpring, withTiming } from "react-native-reanimated"
+import Animated, { useSharedValue, withTiming } from "react-native-reanimated"
 
 const TabbarNavigation = ({state,navigation}:BottomTabBarProps) => {
 
   const { t } = useTranslation()
   const autoColors = getAutoColors()
 
-  const [dimensions, setDimensions] = React.useState({width: 0})
+  const [dimensions, setDimensions] = useState({width: 0})
   const animationLinePosition = useSharedValue(0)
   
   const onTabbarLayout = (e: LayoutChangeEvent) => {

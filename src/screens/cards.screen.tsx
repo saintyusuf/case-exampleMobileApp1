@@ -68,6 +68,7 @@ const CardsScreen = () => {
     return () => clearTimeout(resetIcons)
   },[cardInformations])
 
+  // CARD TRANSACTIONS
   const [cardTransactions, setTransactions] = useState<CardTransactionType[]>([
     {
       category: "clothing",
