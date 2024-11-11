@@ -35,8 +35,7 @@ const ColorPickerModal = (props:Props) => {
             <HueSlider thumbSize={40} sliderThickness={30}/>
           </ColorPicker>
           <View style={{flexDirection: "row", gap: 5, height: 50, justifyContent: "center", alignItems: "center"}}>
-            <TextComponent style={{fontSize: 16}}>{props.selectedBrand}:</TextComponent>
-            <TextComponent style={{fontSize: 16, fontWeight: 800}}>{props.brandColors[props.selectedBrand as keyof typeof props.brandColors]}</TextComponent>
+            <TextComponent style={{fontSize: 16}}>{props.selectedBrand}: {props.brandColors[props.selectedBrand as keyof typeof props.brandColors]}</TextComponent>
           </View>
           <PressableComponent pressableVariant="default" onPress={()=>props.saveChanges()}>
             <TextComponent>

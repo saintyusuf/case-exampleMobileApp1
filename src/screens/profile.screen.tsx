@@ -81,8 +81,7 @@ const ProfileScreen = () => {
               }} 
               style={{flexDirection: "row", gap: 5, marginBottom: 5, backgroundColor: autoColors.bg1, borderWidth: 1, borderColor: autoColors.border1, height: 50, borderRadius: 15, justifyContent: "center", alignItems: "center"}}
             >
-              <TextComponent style={{fontSize: 16}}>brand{i+1}:</TextComponent>
-              <TextComponent style={{fontSize: 16, fontWeight: 800}}>{brandColors[brand as keyof typeof brandColors]}</TextComponent>
+              <TextComponent style={{fontSize: 16}}>brand{i+1}: {brandColors[brand as keyof typeof brandColors]}</TextComponent>
             </PressableComponent>
           ))
         }
