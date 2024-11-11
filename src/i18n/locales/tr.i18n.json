@@ -12,8 +12,9 @@
       "deposit": "Para yükle"
     },
     "profile": {
+      "language": "Dil",
       "resetPreferences": "Tercihleri sıfırla",
-      "language": "Dil"
+      "clearLocalStorage": "Yerel depoyu temizle"
     }
   },
   "components": {

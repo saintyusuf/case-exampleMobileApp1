@@ -12,8 +12,9 @@
       "deposit": "Deposit"
     },
     "profile": {
+      "language": "Language",
       "resetPreferences": "Reset Preferences",
-      "language": "Language"
+      "clearLocalStorage": "Clear Local Storage"
     }
   },
   "components": {

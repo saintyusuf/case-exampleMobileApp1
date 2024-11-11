@@ -3,8 +3,6 @@ import PressableComponent from "../components/pressable.component"
 import TextComponent from "../components/text.component"
 import { View, SafeAreaView, useColorScheme, Text } from "react-native"
 import { useEffect, useRef, useState } from "react"
-import { useDispatch, useSelector } from "react-redux"
-import { AppDispatch, RootState } from "../redux/store.redux"
 import { useTranslation } from "react-i18next"
 import ColorPickerModal from "../modals/colorPicker.modal"
 import PickerSelect from "react-native-picker-select"
@@ -17,9 +15,7 @@ const ProfileScreen = () => {
   const { t } = useTranslation()
   const colorMode = useColorScheme()
   const autoColors = getAutoColors()
-  const { clearLocalStorage } = useApp()
-  const appStates = useSelector((state:RootState)=>state.app)
-  const dispatch = useDispatch<AppDispatch>()
+  const { getBrand1, getBrand2, getBrand3, getFontFamily, getLanguage, setBrand1, setBrand2, setBrand3, setFontFamily, setLanguage, resetPreferences, clearLocalStorage } = useApp()
   const pickerSelect1Ref = useRef<PickerSelect | null>(null)
   const pickerSelect2Ref = useRef<PickerSelect | null>(null)
 
@@ -27,33 +23,33 @@ const ProfileScreen = () => {
   const [selectedBrand, setSelectedBrand] = useState("brand1")
 
   const [brandColors, setBrandColors] = useState({
-    brand1: appStates.foundations.brand1,
-    brand2: appStates.foundations.brand2,
-    brand3: appStates.foundations.brand3,
+    brand1: getBrand1(),
+    brand2: getBrand2(),
+    brand3: getBrand3(),
   }) 
-  const [fontFamily, setFontFamily] = useState(appStates.foundations.fontFamily)
-  const [language, setLanguage] = useState(appStates.language)
+  const [localFontFamily, setLocalFontFamily] = useState(getFontFamily())
+  const [localLanguage, setLocalLanguage] = useState(getLanguage())
 
   useEffect(()=>{
     setBrandColors({
-      brand1: appStates.foundations.brand1,
-      brand2: appStates.foundations.brand2,
-      brand3: appStates.foundations.brand3,
+      brand1: getBrand1(),
+      brand2: getBrand2(),
+      brand3: getBrand3(),
     })
-  },[isColorPickerVisible, appStates])
+  },[isColorPickerVisible, getBrand1(), getBrand2(), getBrand3()])
 
   useEffect(()=>{
-    setFontFamily(appStates.foundations.fontFamily)
-    setLanguage(appStates.language)
-  },[appStates])
+    setFontFamily(getFontFamily())
+    setLanguage(getLanguage())
+  },[getFontFamily(), getLanguage()])
 
   const saveChanges = () => {
     if(selectedBrand === "brand1"){
-      dispatch({type: "app/changeBrand1", payload: brandColors.brand1})
+      setBrand1(brandColors.brand1)
     } else if (selectedBrand === "brand2"){
-      dispatch({type: "app/changeBrand2", payload: brandColors.brand2})
+      setBrand2(brandColors.brand2)
     } else if (selectedBrand === "brand3"){
-      dispatch({type: "app/changeBrand3", payload: brandColors.brand3})
+      setBrand3(brandColors.brand3)
     }
     setIsColorPickerVisible(false)
   }
@@ -91,13 +87,13 @@ const ProfileScreen = () => {
             onPress={()=>pickerSelect1Ref?.current?.togglePicker()}
             style={{flexDirection: "row", gap: 5, marginBottom: 5, backgroundColor: autoColors.bg1, borderWidth: 1, borderColor: autoColors.border1, height: 50, borderRadius: 15, justifyContent: "center", alignItems: "center"}}
           >
-            <TextComponent style={{fontSize: 16, fontFamily: fontFamily}}>Font Family: {fontFamily}</TextComponent>
+            <TextComponent style={{fontSize: 16, fontFamily: localFontFamily}}>Font Family: {localFontFamily}</TextComponent>
           </PressableComponent>
           <PickerSelect
               ref={pickerSelect1Ref}
-              value={fontFamily}
-              onValueChange={(value)=>setFontFamily(value)}
-              onDonePress={()=>dispatch({type: "app/changeFontFamily", payload: fontFamily})}
+              value={localFontFamily}
+              onValueChange={(value)=>setLocalFontFamily(value)}
+              onDonePress={()=>setFontFamily(localFontFamily)}
               items={fonts.map((font)=>({label: font.name, value: font.name}))}
               darkTheme={colorMode === "dark"}
             ><></></PickerSelect>
@@ -108,20 +104,20 @@ const ProfileScreen = () => {
             onPress={()=>pickerSelect2Ref?.current?.togglePicker()}
             style={{flexDirection: "row", gap: 5, marginBottom: 5, backgroundColor: autoColors.bg1, borderWidth: 1, borderColor: autoColors.border1, height: 50, borderRadius: 15, justifyContent: "center", alignItems: "center"}}
           >
-            <TextComponent style={{fontSize: 16}}>{t("screens.profile.language")}: {languages.find(languagesLanguage=>languagesLanguage.code === language)?.name}</TextComponent>
+            <TextComponent style={{fontSize: 16}}>{t("screens.profile.language")}: {languages.find(languagesLanguage=>languagesLanguage.code === localLanguage)?.name}</TextComponent>
           </PressableComponent>
           <PickerSelect
               ref={pickerSelect2Ref}
-              value={language}
-              onValueChange={(value)=>setLanguage(value)}
-              onDonePress={()=>dispatch({type: "app/changeLanguage", payload: language})}
+              value={localLanguage}
+              onValueChange={(value)=>setLocalLanguage(value)}
+              onDonePress={()=>setLanguage(localLanguage)}
               items={languages.map((language)=>({label: language.name, value: language.code}))}
               darkTheme={colorMode === "dark"}
             ><></></PickerSelect>
         </View>
         
         <PressableComponent
-          onPress={()=>dispatch({type: "app/resetPreferences"})}
+          onPress={()=>resetPreferences()}
           style={{flexDirection: "row", gap: 5, marginBottom: 5, backgroundColor: autoColors.bg1, borderWidth: 1, borderColor: autoColors.border1, height: 50, borderRadius: 15, justifyContent: "center", alignItems: "center"}}
         >
           <TextComponent style={{fontSize: 16, color: autoColors.text1}}>
@@ -136,7 +132,9 @@ const ProfileScreen = () => {
           style={{flexDirection: "row", gap: 5, marginBottom: 5, backgroundColor: autoColors.bg1, borderWidth: 1, borderColor: autoColors.border1, height: 50, borderRadius: 15, justifyContent: "center", alignItems: "center"}}
         >
           <TextComponent style={{fontSize: 16, color: autoColors.text1}}>
-            Clear Local Storage
+            {
+              t("screens.profile.clearLocalStorage")
+            }
           </TextComponent>
         </PressableComponent>
       </View>
