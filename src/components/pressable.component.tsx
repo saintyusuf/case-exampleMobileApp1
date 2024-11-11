@@ -30,7 +30,7 @@ const PressableComponent = ( props: Props ) => {
 
       },
       pressable: {
-        minWidth: 62, height: 32, flexDirection: "row", justifyContent: "center", alignItems: "center", backgroundColor: autoColors.bg1, borderRadius: 10, borderWidth: 1, borderColor: autoColors.border1
+        minWidth: 60, height: 32, flexDirection: "row", justifyContent: "center", alignItems: "center", backgroundColor: autoColors.bg1, borderRadius: 10, borderWidth: 1, borderColor: autoColors.border1, paddingHorizontal: 10
       }
     }
   }

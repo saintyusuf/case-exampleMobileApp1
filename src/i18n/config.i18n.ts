@@ -11,13 +11,11 @@ const resources = {
   tr: { translation: tr },
 }
 
-const deviceLanguage = /* getLocales()[0].languageCode || */ "tr"
-
 i18next
   .use(initReactI18next)
   .init({
     compatibilityJSON: "v3",
-    lng: deviceLanguage,
+    lng: getLocales()[0].languageCode,
     fallbackLng: "tr",
     resources,
   })

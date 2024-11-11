@@ -9,10 +9,27 @@
       "myCard": "Kartım",
       "cardBalance": "Kart Bakiyesi",
       "payWithQR": "QR ile öde",
-      "deposit": "Para yükle",
-      "cardInformations": "Kart bilgileri",
+      "deposit": "Para yükle"
+    },
+    "profile": {
+      "resetPreferences": "Tercihleri sıfırla",
+      "language": "Dil"
+    }
+  },
+  "components": {
+    "cardInformations": {
+      "cardInformations": "Kart bilgileri"
+    },
+    "cardTransactions": {
       "cardTransactions": "Kart hareketleri",
-      "all": "Tümü"
+      "all": "Tümü",
+      "less": "Daha az"
+    }
+  },
+  "modals": {
+    "colorPicker": {
+      "close": "Kapat",
+      "save": "Kaydet"
     }
   }
 }

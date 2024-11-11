@@ -21,9 +21,13 @@ const CardTransactionsComponent = (props:Props) => {
   return (
     <View style={{marginTop: 15, marginBottom: 20, paddingHorizontal: 15}}>
       <View style={{flexDirection: "row", alignItems: "flex-end", marginBottom: 7.5}}>
-        <TextComponent style={{fontSize: 17, fontWeight: 500, marginBottom: 5, color: autoColors.text1}}>{t("screens.cards.cardTransactions")}</TextComponent>
+        <TextComponent style={{fontSize: 17, fontWeight: 500, marginBottom: 5, color: autoColors.text1}}>{t("components.cardTransactions.cardTransactions")}</TextComponent>
         <PressableComponent pressableVariant="default" styleOutside={{marginLeft: "auto"}} onPress={()=>setIsAllTransactionsVisible(!isAllTransactionsVisible)}>
-          <TextComponent style={{color: autoColors.text1, fontSize: 14}}>{t("screens.cards.all")}</TextComponent>
+          <TextComponent style={{color: autoColors.text1, fontSize: 14}}>
+            {
+              isAllTransactionsVisible ? t("components.cardTransactions.less") : t("components.cardTransactions.all")
+            }
+          </TextComponent>
         </PressableComponent>
       </View>
 

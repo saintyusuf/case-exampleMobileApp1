@@ -21,7 +21,7 @@ const CardInformationsComponent = (props:Props) => {
   
   return (
     <View style={{marginTop: 20, paddingHorizontal: 15}}>
-      <TextComponent style={{fontSize: 17, fontWeight: 500, marginBottom: 5, color: autoColors.text1}}>{t("screens.cards.cardInformations")}</TextComponent>
+      <TextComponent style={{fontSize: 17, fontWeight: 500, marginBottom: 5, color: autoColors.text1}}>{t("components.cardInformations.cardInformations")}</TextComponent>
       
       <View style={{backgroundColor: autoColors.bg1, borderWidth: 1, borderColor: autoColors.border1, borderRadius: 10}}>
         

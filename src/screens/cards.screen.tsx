@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { Image, ScrollView, View } from "react-native"
 import { SafeAreaView } from "react-native-safe-area-context"
-import { baseColors, getAutoColors } from "../theme"
+import { getBaseColors, getAutoColors } from "../theme"
 import { useTranslation } from "react-i18next"
 import TextComponent from "../components/text.component"
 import CardBackground from "../components/assets/backgrounds/card.background"
@@ -19,6 +19,7 @@ const CardsScreen = () => {
 
   const { t } = useTranslation()
   const autoColors = getAutoColors()
+  const baseColors = getBaseColors()
 
   // CARD INFORMATIONS
   const [cardInformations, setInformations] = useState<CardInformationsType>({

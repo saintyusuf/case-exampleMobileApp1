@@ -9,10 +9,27 @@
       "myCard": "My Card",
       "cardBalance": "Card Balance",
       "payWithQR": "Pay with QR",
-      "deposit": "Add money",
-      "cardInformations": "Card informations",
+      "deposit": "Deposit"
+    },
+    "profile": {
+      "resetPreferences": "Reset Preferences",
+      "language": "Language"
+    }
+  },
+  "components": {
+    "cardInformations": {
+      "cardInformations": "Card informations"
+    },
+    "cardTransactions": {
       "cardTransactions": "Card transactions",
-      "all": "All"
+      "all": "All",
+      "less": "Less"
+    }
+  },
+  "modals": {
+    "colorPicker": {
+      "close": "Close",
+      "save": "Save"
     }
   }
 }
