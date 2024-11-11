@@ -9,6 +9,8 @@ import { useTranslation } from "react-i18next"
 import ColorPickerModal from "../modals/colorPicker.modal"
 import PickerSelect from "react-native-picker-select"
 import useApp from "../hooks/app.hook"
+import languages from "../assets/data/languages.data"
+import fonts from "../assets/data/fonts.data"
 
 const ProfileScreen = () => {
 
@@ -97,11 +99,7 @@ const ProfileScreen = () => {
               value={fontFamily}
               onValueChange={(value)=>setFontFamily(value)}
               onDonePress={()=>dispatch({type: "app/changeFontFamily", payload: fontFamily})}
-              items={[
-                {label: "Montserrat", value: "Montserrat"},
-                {label: "Roboto", value: "Roboto"},
-                {label: "Sour Gummy", value: "Sour Gummy"},
-              ]}
+              items={fonts.map((font)=>({label: font.name, value: font.name}))}
               darkTheme={colorMode === "dark"}
             ><></></PickerSelect>
         </View>
@@ -111,17 +109,14 @@ const ProfileScreen = () => {
             onPress={()=>pickerSelect2Ref?.current?.togglePicker()}
             style={{flexDirection: "row", gap: 5, marginBottom: 5, backgroundColor: autoColors.bg1, borderWidth: 1, borderColor: autoColors.border1, height: 50, borderRadius: 15, justifyContent: "center", alignItems: "center"}}
           >
-            <TextComponent style={{fontSize: 16}}>{t("screens.profile.language")}: {language}</TextComponent>
+            <TextComponent style={{fontSize: 16}}>{t("screens.profile.language")}: {languages.find(languagesLanguage=>languagesLanguage.code === language)?.name}</TextComponent>
           </PressableComponent>
           <PickerSelect
               ref={pickerSelect2Ref}
               value={language}
               onValueChange={(value)=>setLanguage(value)}
               onDonePress={()=>dispatch({type: "app/changeLanguage", payload: language})}
-              items={[
-                {label: "English", value: "en"},
-                {label: "Türkçe", value: "tr"},
-              ]}
+              items={languages.map((language)=>({label: language.name, value: language.code}))}
               darkTheme={colorMode === "dark"}
             ><></></PickerSelect>
         </View>
