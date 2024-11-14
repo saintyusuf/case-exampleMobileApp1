@@ -22,7 +22,7 @@ const ProfileScreen = () => {
   const [isColorPickerVisible, setIsColorPickerVisible] = useState(false)
   const [selectedBrand, setSelectedBrand] = useState("brand1")
 
-  const [brandColors, setBrandColors] = useState({
+  const [localBrandColors, setLocalBrandColors] = useState({
     brand1: getBrand1(),
     brand2: getBrand2(),
     brand3: getBrand3(),
@@ -31,7 +31,7 @@ const ProfileScreen = () => {
   const [localLanguage, setLocalLanguage] = useState(getLanguage())
 
   useEffect(()=>{
-    setBrandColors({
+    setLocalBrandColors({
       brand1: getBrand1(),
       brand2: getBrand2(),
       brand3: getBrand3(),
@@ -39,17 +39,17 @@ const ProfileScreen = () => {
   },[isColorPickerVisible, getBrand1(), getBrand2(), getBrand3()])
 
   useEffect(()=>{
-    setFontFamily(getFontFamily())
-    setLanguage(getLanguage())
+    setLocalFontFamily(getFontFamily())
+    setLocalLanguage(getLanguage())
   },[getFontFamily(), getLanguage()])
 
   const saveChanges = () => {
     if(selectedBrand === "brand1"){
-      setBrand1(brandColors.brand1)
+      setBrand1(localBrandColors.brand1)
     } else if (selectedBrand === "brand2"){
-      setBrand2(brandColors.brand2)
+      setBrand2(localBrandColors.brand2)
     } else if (selectedBrand === "brand3"){
-      setBrand3(brandColors.brand3)
+      setBrand3(localBrandColors.brand3)
     }
     setIsColorPickerVisible(false)
   }
@@ -61,14 +61,14 @@ const ProfileScreen = () => {
         isColorPickerVisible={isColorPickerVisible}
         setIsColorPickerVisible={setIsColorPickerVisible}
         selectedBrand={selectedBrand}
-        brandColors={brandColors}
-        setBrandColors={setBrandColors}
+        brandColors={localBrandColors}
+        setBrandColors={setLocalBrandColors}
         saveChanges={saveChanges}
       />
 
       <View style={{paddingHorizontal: 15}}>
         {
-          Object.keys(brandColors).map((brand:string, i:number) => (
+          Object.keys(localBrandColors).map((brand:string, i:number) => (
             <PressableComponent 
               key={i} 
               onPress={()=>{
@@ -77,7 +77,7 @@ const ProfileScreen = () => {
               }} 
               style={{flexDirection: "row", gap: 5, marginBottom: 5, backgroundColor: autoColors.bg1, borderWidth: 1, borderColor: autoColors.border1, height: 50, borderRadius: 15, justifyContent: "center", alignItems: "center"}}
             >
-              <TextComponent style={{fontSize: 16}}>brand{i+1}: {brandColors[brand as keyof typeof brandColors]}</TextComponent>
+              <TextComponent style={{fontSize: 16}}>brand{i+1}: {localBrandColors[brand as keyof typeof localBrandColors]}</TextComponent>
             </PressableComponent>
           ))
         }

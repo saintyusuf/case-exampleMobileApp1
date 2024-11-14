@@ -130,12 +130,12 @@ const CardsScreen = () => {
           <View style={{flexDirection: "row", padding: 15, gap: 10, justifyContent: "center", borderBottomWidth: 1, borderBottomColor: autoColors.border1}}>
             <PressableComponent pressableVariant="primary">
               <QrIcon color={baseColors.dmText1} style={{marginRight: 5}}/>
-              <TextComponent style={{fontSize: 15, color: baseColors.dmText1}}>{t("screens.cards.payWithQR")}</TextComponent>
+              <TextComponent style={{fontSize: 14, color: baseColors.dmText1}}>{t("screens.cards.payWithQR")}</TextComponent>
             </PressableComponent>
 
             <PressableComponent pressableVariant="primary">
               <DepositIcon color={baseColors.dmText1} style={{marginRight: 5}}/>
-              <TextComponent style={{fontSize: 15, color: baseColors.dmText1}}>{t("screens.cards.deposit")}</TextComponent>
+              <TextComponent style={{fontSize: 14, color: baseColors.dmText1}}>{t("screens.cards.deposit")}</TextComponent>
             </PressableComponent>
           </View>
 
